@@ -20,7 +20,7 @@ public class AzuretestapiApplication {
     @GetMapping("/greeting")
     public Map<String, String> greeting(){
         HashMap<String, String> map = new HashMap<>();
-        map.put("greeting", "merhaba");
+        map.put("greeting", "holla");
         return map;
     }
 
