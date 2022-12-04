@@ -20,6 +20,7 @@ public class AzuretestapiApplication {
     @GetMapping("/greeting")
     public Map<String, String> greeting(){
         HashMap<String, String> map = new HashMap<>();
+        // this is a comment
         map.put("greeting", "holla");
         return map;
     }
