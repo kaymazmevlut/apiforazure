@@ -1,3 +1,4 @@
-FROM openjdk:11-jre-slim
-COPY target/azuretestapi-0.0.1-SNAPSHOT.jar azuretestapi-0.0.1-SNAPSHOT.jar
-ENTRYPOINT ["java", "-jar", "/azuretestapi-0.0.1-SNAPSHOT.jar"]
+# Basic nginx dockerfile starting with Ubuntu 20.04
+FROM ubuntu:20.04
+RUN apt-get -y update
+RUN apt-get -y install nginx
