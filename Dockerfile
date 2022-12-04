@@ -3,6 +3,6 @@ LABEL description="AMPS batch application that runs scheduled jobs."
 
 ENV TZ="US/Central"
 
-COPY target/*.jar app.jar
+COPY /home/app/target/*.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
 EXPOSE 8080
