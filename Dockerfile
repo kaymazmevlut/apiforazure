@@ -1,9 +1,4 @@
-FROM openjdk:18-alpine
-LABEL description="AMPS batch application that runs scheduled jobs."
-
-ENV TZ="US/Central"
-
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+FROM openjdk:11-jre-slim
+COPY target/azuretestapi-0.0.1-SNAPSHOT.jar azuretestapi-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java", "-jar", "/azuretestapi-0.0.1-SNAPSHOT.jar"]
 EXPOSE 8080
