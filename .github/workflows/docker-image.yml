@@ -14,10 +14,10 @@ jobs:
 
       - uses: azure/docker-login@v1
         with:
-          login-server: myregistrymevlut.azurecr.io.azurecr.io
+          login-server: myregistrymevlut.azurecr.io
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
 
       - run: |
-          docker build . -t myregistrymevlut.azurecr.io/mytestapi:${{ github.sha }}
-          docker push myregistrymevlut.azurecr.io/mytestapi:${{ github.sha }}
+          docker build . -t myregistrymevlut.azurecr.io:${{ github.sha }}
+          docker push myregistrymevlut.azurecr.io:${{ github.sha }}
