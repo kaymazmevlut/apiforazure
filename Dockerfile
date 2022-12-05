@@ -1,12 +1,9 @@
-FROM adoptopenjdk:11-jre-hotspot as builder
-COPY . /usr/app
-WORKDIR /usr/app
-RUN chmod +x mvnw \
-    && ./mvnw --version \
-    && ./mvnw clean package
+FROM openjdk:11-jre-slim
+LABEL description="AMPS batch application that runs scheduled jobs."
 
-FROM adoptopenjdk:11-jre-hotspot
-COPY --from=build /usr/app/target/*.jar app.jar
+ENV TZ="US/Central"
+
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
 EXPOSE 8080
-
-ENTRYPOINT ["java","-jar","app.jar"]
