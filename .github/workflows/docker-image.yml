@@ -17,3 +17,14 @@ jobs:
           java-version: 1.11
       - name: Build with Maven
         run: mvn clean install
+      - name: 'Deploy to Azure Container Instances'
+        uses: 'azure/aci-deploy@v1'
+        with:
+          resource-group: ${{ secrets.RESOURCE_GROUP }}
+          dns-name-label: ${{ secrets.RESOURCE_GROUP }}${{ github.run_number }}
+          image: azuretestapi-0.0.1-SNAPSHOT.jar
+          registry-login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+          registry-username: ${{ secrets.REGISTRY_USERNAME }}
+          registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+          name: aci-sampleapp
+          location: 'west us'
