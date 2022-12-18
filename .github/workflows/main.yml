@@ -20,7 +20,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t my-app .
-          docker tag my-app myregistry.azurecr.io/my-app:latest
-          docker push myregistry.azurecr.io/my-app:latest
+          docker tag my-app mycontainermevlut.azurecr.io/my-app:latest
+          docker push mycontainermevlut.azurecr.io/my-app:latest
         env:
           AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
